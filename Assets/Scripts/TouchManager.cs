@@ -11,7 +11,13 @@ public class TouchManager : MonoBehaviour
     public float minYCoordinate = 2.33f; // 카메라가 내려갈 수 있는 최소 y 좌표
     public bool isPanelActive = false;
     private bool isRotating = false;
+    float minFieldOfView = 15;
+    float maxFieldOfView = 130;
+    float minOrthoSize = 15;
+    float maxOrthoSize = 130;
+
     private Vector2 lastTouchPosition;
+    public AndroidToast androidToast;
 
     void Update()
     {
@@ -71,12 +77,15 @@ public class TouchManager : MonoBehaviour
                 if (Camera.main.orthographic)
                 {
                     Camera.main.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
-                    Camera.main.orthographicSize = Mathf.Max(Camera.main.orthographicSize, 0.5f);
+                    Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + deltaMagnitudeDiff * orthoZoomSpeed, minOrthoSize, maxOrthoSize);
+                    androidToast.ShowToastMessage("orthographicSize"+Camera.main.orthographicSize);
                 }
                 else
                 {
                     Camera.main.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
-                    Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, 0.5f, 179.9f);
+                    Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + deltaMagnitudeDiff * perspectiveZoomSpeed, minFieldOfView, maxFieldOfView);
+                    androidToast.ShowToastMessage("Camera.main.fieldOfView"+Camera.main.fieldOfView);
+                    
                 }
             }
 

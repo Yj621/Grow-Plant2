@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public GameObject SoundPanel;
     public Slider musicSlider;
     public Slider soundSlider;
-    public int currentIndex = 0;
+    public int currentIndex;
 
     TouchManager touchManager;
     SoundManager soundManager;
@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     {
         soundManager = FindObjectOfType<SoundManager>();
         touchManager = FindObjectOfType<TouchManager>(); 
-        
         // 처음에 음악 재생
         backgroundMusic[currentIndex].Play();
     }

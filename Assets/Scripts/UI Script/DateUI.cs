@@ -54,7 +54,7 @@ public class DateUI : MonoBehaviour
     {
         isExecuted = true;
         // 10%의 확률로 실행
-        if (Random.Range(0, 100) < 90)
+        if (Random.Range(0, 100) < 10)
         {
             diePanel.SpecialDie(dateCount);
         }
