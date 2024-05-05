@@ -167,15 +167,4 @@ public class DiePanel : MonoBehaviour
                 break;
         }
     }
-
-    public void SpecialDie(int dateCount)
-    {
-        PanelOn();
-        if(dateCount == 8 || dateCount == 21)
-        {
-            memoPanel.MemoPanelOff();
-            blockingButton.CloseBlockingButton();
-            diedText.text = "지나가던 강아지가 식물을 먹어버렸습니다. 다시 시작하시겠습니까?";
-        }
-    }
 }

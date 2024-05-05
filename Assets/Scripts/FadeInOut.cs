@@ -14,7 +14,6 @@ public class FadeInOut : MonoBehaviour
     private bool isFading = false; // 페이드 중인지 여부
     
     public Button eventBtn;  
-    public Button settingBtn;
     public GameObject blockImg2;
 
     void Start()
@@ -37,7 +36,6 @@ public class FadeInOut : MonoBehaviour
         blockImg2.SetActive(true);
         isFading = true; // 페이드 중임을 표시
         eventBtn.interactable = false; // 페이드 도중에 이벤트 버튼 비활성화
-        settingBtn.interactable = false; // 페이드 도중에 세팅 버튼 비활성화
         // 페이드 인
         while (currentAlpha < targetAlpha)
         {
@@ -63,7 +61,7 @@ public class FadeInOut : MonoBehaviour
         blockImg2.SetActive(false);
         isFading = false; // 페이드 종료
         eventBtn.interactable = true;
-        settingBtn.interactable = true;
+        
     }
     public bool GetIsFading()
     {

@@ -15,7 +15,6 @@ public class Button2Click : MonoBehaviour
     private EventButtonUI eventButtonUI;
     public ConditionUI conditionUI;
     public BlockingButton blockingBtn;
-    public EndingScenesManager endingScenesManager;
     public GameObject blockimg;
     private AudioManager audioManager;
 
@@ -126,13 +125,6 @@ public class Button2Click : MonoBehaviour
         else if (dateCount == 16)
         {
             memoPanel.contentText.text = button2MemoArr[1]; 
-        }
-        else if (dateCount == 22)
-        {
-            endingScenesManager.printHiddenEndingScene();
-            EndingScenesManager.isEnding = true;
-            audioManager.StopAllMusic(); //모든 음악 정지
-            audioManager.backgroundMusic[6].Play();
         }
 
         if (diePanel.isDie == false && EndingScenesManager.isEnding == false)
