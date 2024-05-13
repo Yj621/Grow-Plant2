@@ -78,13 +78,13 @@ public class TouchManager : MonoBehaviour
                 {
                     Camera.main.orthographicSize += deltaMagnitudeDiff * orthoZoomSpeed;
                     Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize + deltaMagnitudeDiff * orthoZoomSpeed, minOrthoSize, maxOrthoSize);
-                    androidToast.ShowToastMessage("orthographicSize"+Camera.main.orthographicSize);
+                    // androidToast.ShowToastMessage("orthographicSize"+Camera.main.orthographicSize);
                 }
                 else
                 {
                     Camera.main.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
                     Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView + deltaMagnitudeDiff * perspectiveZoomSpeed, minFieldOfView, maxFieldOfView);
-                    androidToast.ShowToastMessage("Camera.main.fieldOfView"+Camera.main.fieldOfView);
+                    // androidToast.ShowToastMessage("Camera.main.fieldOfView"+Camera.main.fieldOfView);
                     
                 }
             }
